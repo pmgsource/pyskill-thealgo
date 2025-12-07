@@ -124,7 +124,6 @@ class HashTable:
         [5, 1, 2, 3, 4]
         """
         i = 1
-        self.__aux_list = values
         for value in values:
             self.insert_data(value)
             self._step_by_step(i)
