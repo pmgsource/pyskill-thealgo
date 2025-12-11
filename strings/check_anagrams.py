@@ -34,8 +34,8 @@ def check_anagrams(first_str: str, second_str: str) -> bool:
 
     # For each character in input strings,
     # increment count in the corresponding
-    for i in range(len(first_str)):
-        count[first_str[i]] += 1
+    for i, item in enumerate(first_str):
+        count[item] += 1
         count[second_str[i]] -= 1
 
     return all(_count == 0 for _count in count.values())

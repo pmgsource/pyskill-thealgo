@@ -28,8 +28,8 @@ def multiplicative_persistence(num: int) -> int:
         numbers = [int(i) for i in num_string]
 
         total = 1
-        for i in range(len(numbers)):
-            total *= numbers[i]
+        for i, item in enumerate(numbers):
+            total *= item
 
         num_string = str(total)
 
@@ -67,8 +67,8 @@ def additive_persistence(num: int) -> int:
         numbers = [int(i) for i in num_string]
 
         total = 0
-        for i in range(len(numbers)):
-            total += numbers[i]
+        for i, item in enumerate(numbers):
+            total += item
 
         num_string = str(total)
 

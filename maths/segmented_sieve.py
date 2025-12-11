@@ -61,8 +61,8 @@ def sieve(n: int) -> list[int]:
             for j in range(t, high + 1, each):
                 temp[j - low] = False
 
-        for j in range(len(temp)):
-            if temp[j] is True:
+        for j, item in enumerate(temp):
+            if item is True:
                 prime.append(j + low)
 
         low = high + 1

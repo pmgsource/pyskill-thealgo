@@ -35,8 +35,8 @@ def simplify(current_set: list[list]) -> list[list]:
         if row[0] == 0:
             final_set.append(row)
             continue
-        for column_index in range(len(row)):
-            temp_row.append(first_row[column_index] - row[column_index])
+        for column_index, item in enumerate(row):
+            temp_row.append(first_row[column_index] - item)
         final_set.append(temp_row)
     # Create next recursion iteration set
     if len(final_set[0]) != 3:
@@ -47,8 +47,8 @@ def simplify(current_set: list[list]) -> list[list]:
             current_first_column.append(row[0])
             next_iteration.append(row[1::])
         resultant = simplify(next_iteration)
-        for i in range(len(resultant)):
-            resultant[i].insert(0, current_first_column[i])
+        for i, item in enumerate(resultant):
+            item.insert(0, current_first_column[i])
         resultant.insert(0, current_first_row)
         final_set = resultant
     return final_set

@@ -71,8 +71,8 @@ def dijkstra(
             path.reverse()
             return float(matrix[destination]), path
 
-        for i in range(len(dx)):
-            nx, ny = x + dx[i], y + dy[i]
+        for i, item in enumerate(dx):
+            nx, ny = x + item, y + dy[i]
             if 0 <= nx < rows and 0 <= ny < cols:
                 next_node = grid[nx][ny]
                 if next_node == 1 and matrix[nx, ny] > dist + 1:

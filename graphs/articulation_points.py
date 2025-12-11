@@ -35,8 +35,8 @@ def compute_ap(graph):
             out_edge_count = dfs(i, i, -1, out_edge_count)
             is_art[i] = out_edge_count > 1
 
-    for x in range(len(is_art)):
-        if is_art[x] is True:
+    for x, item in enumerate(is_art):
+        if item is True:
             print(x)
 
 

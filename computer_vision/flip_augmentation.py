@@ -90,9 +90,8 @@ def update_image_and_anno(
     new_annos_lists = []
     path_list = []
     new_imgs_list = []
-    for idx in range(len(img_list)):
+    for idx, path in enumerate(img_list):
         new_annos = []
-        path = img_list[idx]
         path_list.append(path)
         img_annos = anno_list[idx]
         img = cv2.imread(path)

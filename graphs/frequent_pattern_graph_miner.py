@@ -214,10 +214,10 @@ def preprocess(edge_array):
     ...              'eg-e2', 'fg-e6', 'gh-e6', 'hi-e3']])
 
     """
-    for i in range(len(edge_array)):
-        for j in range(len(edge_array[i])):
-            t = edge_array[i][j].split("-")
-            edge_array[i][j] = t
+    for i, item in enumerate(edge_array):
+        for j in range(len(item)):
+            t = item[j].split("-")
+            item[j] = t
 
 
 if __name__ == "__main__":

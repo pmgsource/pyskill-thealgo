@@ -63,8 +63,8 @@ class AssignmentUsingBitmask:
 
     def count_no_of_ways(self, task_performed):
         # Store the list of persons for each task
-        for i in range(len(task_performed)):
-            for j in task_performed[i]:
+        for i, item in enumerate(task_performed):
+            for j in item:
                 self.task[j].append(i)
 
         # call the function to fill the DP table, final answer is stored in dp[0][1]

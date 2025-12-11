@@ -69,8 +69,8 @@ class BifidCipher:
         message = message.replace("j", "i")
 
         first_step = np.empty((2, len(message)))
-        for letter_index in range(len(message)):
-            numbers = self.letter_to_numbers(message[letter_index])
+        for letter_index, item in enumerate(message):
+            numbers = self.letter_to_numbers(item)
 
             first_step[0, letter_index] = numbers[0]
             first_step[1, letter_index] = numbers[1]
@@ -95,8 +95,8 @@ class BifidCipher:
         message = message.lower()
         message.replace(" ", "")
         first_step = np.empty(2 * len(message))
-        for letter_index in range(len(message)):
-            numbers = self.letter_to_numbers(message[letter_index])
+        for letter_index, item in enumerate(message):
+            numbers = self.letter_to_numbers(item)
             first_step[letter_index * 2] = numbers[0]
             first_step[letter_index * 2 + 1] = numbers[1]
 

@@ -121,9 +121,9 @@ def sieve_er(n):
     ans = []  # this list will be returns.
 
     # actual sieve of erathostenes
-    for i in range(len(begin_list)):
+    for i, item in enumerate(begin_list):
         for j in range(i + 1, len(begin_list)):
-            if (begin_list[i] != 0) and (begin_list[j] % begin_list[i] == 0):
+            if (item != 0) and (begin_list[j] % item == 0):
                 begin_list[j] = 0
 
     # filters actual prime numbers.

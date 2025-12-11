@@ -18,8 +18,8 @@ def bfs(graph, s, t, parent):
 
     while queue:
         u = queue.pop(0)
-        for ind in range(len(graph[u])):
-            if visited[ind] is False and graph[u][ind] > 0:
+        for ind, item in enumerate(graph[u]):
+            if visited[ind] is False and item > 0:
                 queue.append(ind)
                 visited[ind] = True
                 parent[ind] = u
@@ -54,9 +54,9 @@ def mincut(graph, source, sink):
             graph[v][u] += path_flow
             v = parent[v]
 
-    for i in range(len(graph)):
+    for i, item in enumerate(graph):
         for j in range(len(graph[0])):
-            if graph[i][j] == 0 and temp[i][j] > 0:
+            if item[j] == 0 and temp[i][j] > 0:
                 res.append((i, j))
 
     return res

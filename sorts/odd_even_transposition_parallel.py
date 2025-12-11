@@ -172,8 +172,8 @@ def odd_even_transposition(arr):
         p.start()
 
     # wait for the processes to end and write their values to the list
-    for p in range(len(result_pipe)):
-        arr[p] = result_pipe[p][0].recv()
+    for p, item in enumerate(result_pipe):
+        arr[p] = item[0].recv()
         process_array_[p].join()
     return arr
 

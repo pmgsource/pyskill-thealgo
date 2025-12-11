@@ -21,16 +21,16 @@ def totient(n: int) -> list:
     for i in range(2, n + 1):
         if is_prime[i]:
             primes.append(i)
-        for j in range(len(primes)):
-            if i * primes[j] >= n:
+        for j, item in enumerate(primes):
+            if i * item >= n:
                 break
-            is_prime[i * primes[j]] = False
+            is_prime[i * item] = False
 
-            if i % primes[j] == 0:
-                totients[i * primes[j]] = totients[i] * primes[j]
+            if i % item == 0:
+                totients[i * item] = totients[i] * item
                 break
 
-            totients[i * primes[j]] = totients[i] * (primes[j] - 1)
+            totients[i * item] = totients[i] * (item - 1)
 
     return totients
 

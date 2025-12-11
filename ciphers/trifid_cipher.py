@@ -199,8 +199,8 @@ def decrypt_message(
     for i in range(0, len(message), period):
         a, b, c = __decrypt_part(message[i : i + period], character_to_number)
 
-        for j in range(len(a)):
-            decrypted_numeric.append(a[j] + b[j] + c[j])
+        for j, item in enumerate(a):
+            decrypted_numeric.append(item + b[j] + c[j])
 
     return "".join(number_to_character[each] for each in decrypted_numeric)
 

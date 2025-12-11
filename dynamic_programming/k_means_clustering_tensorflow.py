@@ -100,8 +100,7 @@ def tf_k_means_cluster(vectors, noofclusters):
             ##Based on the centroid locations till last iteration, compute
             ##the _expected_ centroid assignments.
             # Iterate over each vector
-            for vector_n in range(len(vectors)):
-                vect = vectors[vector_n]
+            for vector_n, vect in enumerate(vectors):
                 # Compute Euclidean distance between this vector and each
                 # centroid. Remember that this list cannot be named
                 #'centroid_distances', since that is the input to the

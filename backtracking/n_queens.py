@@ -78,9 +78,9 @@ def printboard(board: list[list[int]]) -> None:
     """
     Prints the boards that have a successful combination.
     """
-    for i in range(len(board)):
+    for i, item in enumerate(board):
         for j in range(len(board)):
-            if board[i][j] == 1:
+            if item[j] == 1:
                 print("Q", end=" ")  # Queen is present
             else:
                 print(".", end=" ")  # Empty cell

@@ -111,10 +111,10 @@ def run_gradient_descent():
     while True:
         j += 1
         temp_parameter_vector = [0, 0, 0, 0]
-        for i in range(len(parameter_vector)):
+        for i, item in enumerate(parameter_vector):
             cost_derivative = get_cost_derivative(i - 1)
             temp_parameter_vector[i] = (
-                parameter_vector[i] - LEARNING_RATE * cost_derivative
+                item - LEARNING_RATE * cost_derivative
             )
         if np.allclose(
             parameter_vector,

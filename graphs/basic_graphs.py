@@ -359,14 +359,14 @@ def krusk(e_and_n):
             break
         print(s)
         x = e.pop()
-        for i in range(len(s)):
-            if x[0] in s[i]:
+        for i, item in enumerate(s):
+            if x[0] in item:
                 break
-        for j in range(len(s)):
-            if x[1] in s[j]:
+        for j, item in enumerate(s):
+            if x[1] in item:
                 if i == j:
                     break
-                s[j].update(s[i])
+                item.update(s[i])
                 s.pop(i)
                 break
 

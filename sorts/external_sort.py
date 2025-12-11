@@ -49,8 +49,8 @@ class NWayMerge:
         min_index = -1
         min_str = None
 
-        for i in range(len(choices)):
-            if min_str is None or choices[i] < min_str:
+        for i, item in enumerate(choices):
+            if min_str is None or item < min_str:
                 min_index = i
 
         return min_index
@@ -100,8 +100,8 @@ class FileMerger:
     def get_file_handles(self, filenames, buffer_size):
         files = {}
 
-        for i in range(len(filenames)):
-            files[i] = open(filenames[i], "r", buffer_size)  # noqa: UP015
+        for i, item in enumerate(filenames):
+            files[i] = open(item, "r", buffer_size)  # noqa: UP015
 
         return files
 

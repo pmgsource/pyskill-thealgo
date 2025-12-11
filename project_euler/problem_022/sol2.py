@@ -31,8 +31,8 @@ def solution():
         name = name.replace('"', "").split(",")
 
     name.sort()
-    for i in range(len(name)):
-        for j in name[i]:
+    for i, item in enumerate(name):
+        for j in item:
             temp_sum += ord(j) - ord("A") + 1
         total_sum += (i + 1) * temp_sum
         temp_sum = 0

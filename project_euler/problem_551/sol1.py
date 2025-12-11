@@ -120,11 +120,11 @@ def compute(a_i, k, i, n):
     # ds_c -> digitsum(c)
     start_i = i
     ds_b, ds_c, diff = 0, 0, 0
-    for j in range(len(a_i)):
+    for j, item in enumerate(a_i):
         if j >= k:
-            ds_b += a_i[j]
+            ds_b += item
         else:
-            ds_c += a_i[j]
+            ds_c += item
 
     while i < n:
         i += 1
@@ -191,8 +191,8 @@ def solution(n: int = 10**15) -> int:
             break
 
     a_n = 0
-    for j in range(len(digits)):
-        a_n += digits[j] * 10**j
+    for j, item in enumerate(digits):
+        a_n += item * 10**j
     return a_n
 
 

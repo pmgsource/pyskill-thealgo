@@ -66,10 +66,10 @@ class BezierCurve:
         basis_function = self.basis_function(t)
         x = 0.0
         y = 0.0
-        for i in range(len(self.list_of_points)):
+        for i, item in enumerate(self.list_of_points):
             # For all points, sum up the product of i-th basis function and i-th point.
-            x += basis_function[i] * self.list_of_points[i][0]
-            y += basis_function[i] * self.list_of_points[i][1]
+            x += basis_function[i] * item[0]
+            y += basis_function[i] * item[1]
         return (x, y)
 
     def plot_curve(self, step_size: float = 0.01):

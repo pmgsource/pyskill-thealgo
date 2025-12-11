@@ -36,8 +36,8 @@ class Dual:
         elif len(s_dual) < len(o_dual):
             s_dual.extend([1] * (len(o_dual) - len(s_dual)))
         new_duals = []
-        for i in range(len(s_dual)):
-            new_duals.append(s_dual[i] + o_dual[i])
+        for i, item in enumerate(s_dual):
+            new_duals.append(item + o_dual[i])
         return Dual(self.real + other.real, new_duals)
 
     __radd__ = __add__
@@ -55,10 +55,10 @@ class Dual:
         for i, item in enumerate(self.duals):
             for j, jtem in enumerate(other.duals):
                 new_duals[i + j + 1] += item * jtem
-        for k in range(len(self.duals)):
-            new_duals[k] += self.duals[k] * other.real
-        for index in range(len(other.duals)):
-            new_duals[index] += other.duals[index] * self.real
+        for k, item in enumerate(self.duals):
+            new_duals[k] += item * other.real
+        for index, item in enumerate(other.duals):
+            new_duals[index] += item * self.real
         return Dual(self.real * other.real, new_duals)
 
     __rmul__ = __mul__

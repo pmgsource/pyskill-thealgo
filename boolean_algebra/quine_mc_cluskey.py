@@ -34,16 +34,16 @@ def check(binary: list[str]) -> list[str]:
     while True:
         check1 = ["$"] * len(binary)
         temp = []
-        for i in range(len(binary)):
+        for i, item in enumerate(binary):
             for j in range(i + 1, len(binary)):
-                k = compare_string(binary[i], binary[j])
+                k = compare_string(item, binary[j])
                 if k is False:
                     check1[i] = "*"
                     check1[j] = "*"
                     temp.append("X")
-        for i in range(len(binary)):
+        for i, item in enumerate(binary):
             if check1[i] == "$":
-                pi.append(binary[i])
+                pi.append(item)
         if len(temp) == 0:
             return pi
         binary = list(set(temp))
@@ -115,8 +115,8 @@ def selection(chart: list[list[int]], prime_implicants: list[str]) -> list[str]:
         for j in range(len(chart[0])):
             if chart[rem][j] != 1:
                 continue
-            for i in range(len(chart)):
-                chart[i][j] = 0
+            for i, item in enumerate(chart):
+                item[j] = 0
 
 
 def prime_implicant_chart(
@@ -127,10 +127,10 @@ def prime_implicant_chart(
     [[1]]
     """
     chart = [[0 for x in range(len(binary))] for x in range(len(prime_implicants))]
-    for i in range(len(prime_implicants)):
-        count = prime_implicants[i].count("_")
-        for j in range(len(binary)):
-            if is_for_table(prime_implicants[i], binary[j], count):
+    for i, item in enumerate(prime_implicants):
+        count = item.count("_")
+        for j, item in enumerate(binary):
+            if is_for_table(prime_implicants[i], item, count):
                 chart[i][j] = 1
 
     return chart
