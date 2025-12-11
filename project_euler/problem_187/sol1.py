@@ -127,11 +127,11 @@ def solution(max_number: int = 10**8) -> int:
 
     semiprimes_count = 0
     right = len(prime_numbers) - 1
-    for left in range(len(prime_numbers)):
+    for left, item in enumerate(prime_numbers):
         if left > right:
             break
         for r in range(right, left - 2, -1):
-            if prime_numbers[left] * prime_numbers[r] < max_number:
+            if item * prime_numbers[r] < max_number:
                 break
         right = r
         semiprimes_count += right - left + 1

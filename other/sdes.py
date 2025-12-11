@@ -25,8 +25,8 @@ def xor(a, b):
     '01011010'
     """
     res = ""
-    for i in range(len(a)):
-        if a[i] == b[i]:
+    for i, item in enumerate(a):
+        if item == b[i]:
             res += "0"
         else:
             res += "1"

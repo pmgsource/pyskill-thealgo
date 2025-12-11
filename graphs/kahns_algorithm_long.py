@@ -8,8 +8,8 @@ def longest_distance(graph):
         for i in values:
             indegree[i] += 1
 
-    for i in range(len(indegree)):
-        if indegree[i] == 0:
+    for i, item in enumerate(indegree):
+        if item == 0:
             queue.append(i)
 
     while queue:

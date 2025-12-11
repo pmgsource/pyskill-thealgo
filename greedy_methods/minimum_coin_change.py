@@ -96,5 +96,5 @@ if __name__ == "__main__":
         print(f"Following is minimal change for {value}: ")
         answer = find_minimum_change(denominations, value)
         # Print result
-        for i in range(len(answer)):
-            print(answer[i], end=" ")
+        for i, item in enumerate(answer):
+            print(item, end=" ")

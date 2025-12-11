@@ -52,8 +52,8 @@ class Onepad:
         'Hello'
         """
         plain = []
-        for i in range(len(key)):
-            p = int((cipher[i] - (key[i]) ** 2) / key[i])
+        for i, item in enumerate(key):
+            p = int((cipher[i] - item ** 2) / item)
             plain.append(chr(p))
         return "".join(plain)
 

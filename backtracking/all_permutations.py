@@ -65,9 +65,9 @@ def create_state_space_tree(
         print(current_sequence)
         return
 
-    for i in range(len(sequence)):
+    for i, item in enumerate(sequence):
         if not index_used[i]:
-            current_sequence.append(sequence[i])
+            current_sequence.append(item)
             index_used[i] = True
             create_state_space_tree(sequence, current_sequence, index + 1, index_used)
             current_sequence.pop()

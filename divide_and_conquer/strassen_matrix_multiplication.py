@@ -97,10 +97,10 @@ def actual_strassen(matrix_a: list, matrix_b: list) -> list:
 
     # construct the new matrix from our 4 quadrants
     new_matrix = []
-    for i in range(len(top_right)):
-        new_matrix.append(top_left[i] + top_right[i])
-    for i in range(len(bot_right)):
-        new_matrix.append(bot_left[i] + bot_right[i])
+    for i, item in enumerate(top_right):
+        new_matrix.append(top_left[i] + item)
+    for i, item in enumerate(bot_right):
+        new_matrix.append(bot_left[i] + item)
     return new_matrix
 
 

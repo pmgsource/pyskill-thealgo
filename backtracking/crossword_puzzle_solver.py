@@ -103,9 +103,9 @@ def solve_crossword(puzzle: list[list[str]], words: list[str]) -> bool:
     >>> solve_crossword(puzzle, words)
     False
     """
-    for row in range(len(puzzle)):
+    for row, item in enumerate(puzzle):
         for col in range(len(puzzle[0])):
-            if puzzle[row][col] == "":
+            if item[col] == "":
                 for word in words:
                     for vertical in [True, False]:
                         if is_valid(puzzle, word, row, col, vertical):

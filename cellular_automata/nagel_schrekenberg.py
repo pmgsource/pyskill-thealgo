@@ -70,8 +70,8 @@ def get_distance(highway_now: list, car_index: int) -> int:
 
     distance = 0
     cells = highway_now[car_index + 1 :]
-    for cell in range(len(cells)):  # May need a better name for this
-        if cells[cell] != -1:  # If the cell is not empty then
+    for cell, item in enumerate(cells):  # May need a better name for this
+        if item != -1:  # If the cell is not empty then
             return distance  # we have the distance we wanted
         distance += 1
     # Here if the car is near the end of the highway

@@ -53,8 +53,8 @@ class MLFQ:
         ['P2', 'P4', 'P1', 'P3']
         """
         sequence = []
-        for i in range(len(self.finish_queue)):
-            sequence.append(self.finish_queue[i].process_name)
+        for i, item in enumerate(self.finish_queue):
+            sequence.append(item.process_name)
         return sequence
 
     def calculate_waiting_time(self, queue: list[Process]) -> list[int]:
@@ -70,8 +70,8 @@ class MLFQ:
         [83, 17, 94, 101]
         """
         waiting_times = []
-        for i in range(len(queue)):
-            waiting_times.append(queue[i].waiting_time)
+        for i, item in enumerate(queue):
+            waiting_times.append(item.waiting_time)
         return waiting_times
 
     def calculate_turnaround_time(self, queue: list[Process]) -> list[int]:
@@ -87,8 +87,8 @@ class MLFQ:
         [136, 34, 162, 125]
         """
         turnaround_times = []
-        for i in range(len(queue)):
-            turnaround_times.append(queue[i].turnaround_time)
+        for i, item in enumerate(queue):
+            turnaround_times.append(item.turnaround_time)
         return turnaround_times
 
     def calculate_completion_time(self, queue: list[Process]) -> list[int]:
@@ -104,8 +104,8 @@ class MLFQ:
         [136, 34, 162, 125]
         """
         completion_times = []
-        for i in range(len(queue)):
-            completion_times.append(queue[i].stop_time)
+        for i, item in enumerate(queue):
+            completion_times.append(item.stop_time)
         return completion_times
 
     def calculate_remaining_burst_time_of_processes(

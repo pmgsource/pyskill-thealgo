@@ -374,10 +374,10 @@ def visualise_word_search(
         board = word_search.board
 
     result = ""
-    for row in range(len(board)):
+    for row, item in enumerate(board):
         for col in range(len(board[0])):
             character = "#"
-            if (letter := board[row][col]) is not None:
+            if (letter := item[col]) is not None:
                 character = letter
             # Empty char, so add a fake char
             elif add_fake_chars:

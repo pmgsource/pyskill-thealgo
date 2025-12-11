@@ -15,9 +15,9 @@ class SelfOrganizingMap:
         """
         d0 = 0.0
         d1 = 0.0
-        for i in range(len(sample)):
-            d0 += math.pow((sample[i] - weights[0][i]), 2)
-            d1 += math.pow((sample[i] - weights[1][i]), 2)
+        for i, item in enumerate(sample):
+            d0 += math.pow((item - weights[0][i]), 2)
+            d1 += math.pow((item - weights[1][i]), 2)
             return 0 if d0 > d1 else 1
         return 0
 
@@ -49,9 +49,7 @@ def main() -> None:
     alpha = 0.5
 
     for _ in range(epochs):
-        for j in range(len(training_samples)):
-            # training sample
-            sample = training_samples[j]
+        for j, sample in enumerate(training_samples):
 
             # Compute the winning vector
             winner = self_organizing_map.get_winner(weights, sample)

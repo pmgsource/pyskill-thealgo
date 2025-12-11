@@ -92,15 +92,15 @@ def compute_nums(n: int) -> list[int]:
         raise ValueError("n must be >= 0")
 
     list_nums = []
-    for num in range(len(odd_composites)):
+    for num, item in enumerate(odd_composites):
         i = 0
-        while 2 * i * i <= odd_composites[num]:
-            rem = odd_composites[num] - 2 * i * i
+        while 2 * i * i <= item:
+            rem = item - 2 * i * i
             if is_prime(rem):
                 break
             i += 1
         else:
-            list_nums.append(odd_composites[num])
+            list_nums.append(item)
             if len(list_nums) == n:
                 return list_nums
 

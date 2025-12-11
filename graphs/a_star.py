@@ -72,9 +72,9 @@ def search(
             if x == goal[0] and y == goal[1]:
                 found = True
             else:
-                for i in range(len(DIRECTIONS)):  # to try out different valid actions
-                    x2 = x + DIRECTIONS[i][0]
-                    y2 = y + DIRECTIONS[i][1]
+                for i, item in enumerate(DIRECTIONS):  # to try out different valid actions
+                    x2 = x + item[0]
+                    y2 = y + item[1]
                     if (
                         x2 >= 0
                         and x2 < len(grid)
@@ -121,18 +121,18 @@ if __name__ == "__main__":
 
     # the cost map which pushes the path closer to the goal
     heuristic = [[0 for row in range(len(grid[0]))] for col in range(len(grid))]
-    for i in range(len(grid)):
+    for i, item in enumerate(grid):
         for j in range(len(grid[0])):
             heuristic[i][j] = abs(i - goal[0]) + abs(j - goal[1])
-            if grid[i][j] == 1:
+            if item[j] == 1:
                 # added extra penalty in the heuristic map
                 heuristic[i][j] = 99
 
     path, action = search(grid, init, goal, cost, heuristic)
 
     print("ACTION MAP")
-    for i in range(len(action)):
-        print(action[i])
+    for i, item in enumerate(action):
+        print(item)
 
-    for i in range(len(path)):
-        print(path[i])
+    for i, item in enumerate(path):
+        print(item)

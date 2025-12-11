@@ -124,9 +124,9 @@ class CNN:
         size_feature_map = int((size_data - size_conv) / conv_step + 1)
         for i_map in range(num_conv):
             featuremap = []
-            for i_focus in range(len(data_focus)):
+            for i_focus, item in enumerate(data_focus):
                 net_focus = (
-                    np.sum(np.multiply(data_focus[i_focus], w_convs[i_map]))
+                    np.sum(np.multiply(item, w_convs[i_map]))
                     - thre_convs[i_map]
                 )
                 featuremap.append(self.sig(net_focus))
@@ -147,8 +147,7 @@ class CNN:
         size_map = len(featuremaps[0])
         size_pooled = int(size_map / size_pooling)
         featuremap_pooled = []
-        for i_map in range(len(featuremaps)):
-            feature_map = featuremaps[i_map]
+        for i_map, feature_map in enumerate(featuremaps):
             map_pooled = []
             for i_focus in range(0, size_map, size_pooling):
                 for j_focus in range(0, size_map, size_pooling):
@@ -169,9 +168,9 @@ class CNN:
     def _expand(self, data):
         # expanding three dimension data to one dimension list
         data_expanded = []
-        for i in range(len(data)):
-            shapes = np.shape(data[i])
-            data_listed = data[i].reshape(1, shapes[0] * shapes[1])
+        for i, item in enumerate(data):
+            shapes = np.shape(item)
+            data_listed = item.reshape(1, shapes[0] * shapes[1])
             data_listed = data_listed.getA().tolist()[0]
             data_expanded.extend(data_listed)
         data_expanded = np.asarray(data_expanded)
@@ -222,9 +221,9 @@ class CNN:
         while rp < n_repeat and mse >= error_accuracy:
             error_count = 0
             print(f"-------------Learning Time {rp}--------------")
-            for p in range(len(datas_train)):
+            for p, item in enumerate(datas_train):
                 # print('------------Learning Image: %d--------------'%p)
-                data_train = np.asmatrix(datas_train[p])
+                data_train = np.asmatrix(item)
                 data_teach = np.asarray(datas_teach[p])
                 data_focus1, data_conved1 = self.convolute(
                     data_train,
@@ -315,8 +314,8 @@ class CNN:
         produce_out = []
         print("-------------------Start Testing-------------------------")
         print((" - - Shape: Test_Data  ", np.shape(datas_test)))
-        for p in range(len(datas_test)):
-            data_test = np.asmatrix(datas_test[p])
+        for p, item in enumerate(datas_test):
+            data_test = np.asmatrix(item)
             data_focus1, data_conved1 = self.convolute(
                 data_test,
                 self.conv1,

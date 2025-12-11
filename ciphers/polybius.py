@@ -62,11 +62,11 @@ class PolybiusCipher:
         message = message.replace("j", "i")
 
         encoded_message = ""
-        for letter_index in range(len(message)):
-            if message[letter_index] != " ":
-                numbers = self.letter_to_numbers(message[letter_index])
+        for letter_index, item in enumerate(message):
+            if item != " ":
+                numbers = self.letter_to_numbers(item)
                 encoded_message = encoded_message + str(numbers[0]) + str(numbers[1])
-            elif message[letter_index] == " ":
+            elif item == " ":
                 encoded_message = encoded_message + " "
 
         return encoded_message
